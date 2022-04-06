@@ -20,15 +20,24 @@
         </v-col>
         <v-col lg="6" md="6" sm="12">
           <div class="right-hero">
-            <v-carousel>
+            <v-carousel :continuous="true" hide-delimiters>
               <v-carousel-item
-                ><img src="../../../assets/Banner/banner (1) (1).png" alt=""
+                ><img
+                  class="banner-img"
+                  src="../../../assets/Banner/banner (1) (1).png"
+                  alt=""
               /></v-carousel-item>
               <v-carousel-item
-                ><img src="../../../assets/Banner/banner (2) (1).png" alt=""
+                ><img
+                  class="banner-img"
+                  src="../../../assets/Banner/banner (2) (1).png"
+                  alt=""
               /></v-carousel-item>
               <v-carousel-item
-                ><img src="../../../assets/Banner/banner (3) (1).png" alt=""
+                ><img
+                  class="banner-img"
+                  src="../../../assets/Banner/banner (3) (1).png"
+                  alt=""
               /></v-carousel-item>
             </v-carousel>
           </div>
@@ -48,6 +57,8 @@ export default {
 .hero-main {
   background-color: #3f51b5;
   color: #fff;
+  margin: 0;
+  padding: 0;
 }
 .left-hero p {
   margin: 30px 0px;
@@ -55,5 +66,17 @@ export default {
 .left-hero h1 span {
   color: #ffe04a;
   font-size: 50px;
+}
+.banner-img {
+  width: 100%;
+  overflow: hidden;
+}
+.section-heading p {
+  width: 400px;
+  margin: 10px auto;
+}
+.section-heading h1 {
+  font-size: 30px;
+  color: #3f51b5;
 }
 </style>
