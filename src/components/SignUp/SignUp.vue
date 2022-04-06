@@ -4,7 +4,7 @@
       <v-row class="align-center">
         <v-col class="left-login" lg="6" md="6" sm="12">
           <div class="section-title">
-            <h1>Please SignUp</h1>
+            <h1>Please Sign Up</h1>
           </div>
 
           <img

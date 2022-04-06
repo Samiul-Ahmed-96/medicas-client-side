@@ -20,14 +20,7 @@
             <img v-bind:src="'data:image/jpeg;base64,' + service.img" />
             <h2>{{ service.name }}</h2>
             <h4>Service Price : {{ service.price }}</h4>
-            <v-btn
-              ><v-icon>mdi-plus</v-icon>
-              <router-link
-                :to="{ name: 'DetailService', params: { id: service._id } }"
-              >
-                Details</router-link
-              ></v-btn
-            >
+            <v-btn> <v-icon>mdi-plus</v-icon> Details </v-btn>
           </div>
         </v-col>
       </v-row>
@@ -50,39 +43,8 @@ export default {
     );
     console.log(result.data);
     this.services = result.data;
-    this.services = this.services.slice(0, 6);
   },
 };
 </script>
 
-<style>
-.single-service img {
-  width: 50%;
-  background-color: #ffe04a;
-  padding: 10px;
-  border-radius: 50%;
-}
-.single-service {
-  text-align: center;
-  background: #3f51b5;
-  color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-}
-.single-service h4 {
-  margin: 20px 0px;
-}
-.section-heading {
-  text-align: center;
-  margin: 60px 0px;
-  font-weight: 700;
-}
-.section-heading p {
-  width: 300px;
-  margin: 10px auto;
-}
-.section-heading h1 span {
-  color: #3f51b5;
-  font-size: 45px;
-}
-</style>
+<style scoped></style>

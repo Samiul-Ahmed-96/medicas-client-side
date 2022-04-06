@@ -11,10 +11,14 @@
     </v-avatar>
     <v-spacer />
     <v-list color="indigo" class="d-flex align-center">
-      <v-list-item v-for="menu in menus" :key="menu.title" to="menu.route">
-        <v-list-item-title style="color: #ffe04a">{{
-          menu.title
-        }}</v-list-item-title>
+      <v-list-item link v-for="menu in menus" :key="menu.title">
+        <v-list-item-title
+          ><router-link
+            style="color: #ffe04a; text-decoration: none"
+            :to="menu.route"
+            >{{ menu.title }}</router-link
+          ></v-list-item-title
+        >
       </v-list-item>
     </v-list>
     <v-btn to="/login" text><v-icon color="#ffe04a">mdi-login</v-icon></v-btn>
