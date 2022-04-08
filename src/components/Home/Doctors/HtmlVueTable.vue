@@ -1,51 +1,45 @@
 <template>
-  <v-container>
-    <template>
-      <v-simple-table class="elevation-10 my-10">
-        <template v-slot:default>
-          <thead>
-            <tr>
-              <th class="text-left">Name</th>
-              <th class="text-left">Joining Date</th>
-              <th class="text-left">Image Link</th>
+  <section class="doctor my-15">
+    <v-container>
+      <table class="elevation-10">
+        <tr>
+          <th>Name</th>
+          <th>Joining Date</th>
+          <th>Image Link</th>
 
-              <th class="text-left">Doctor Rating</th>
-              <th class="text-left">Doctor Designation</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="doctor in doctors" :key="doctor.id">
-              <td>
-                <div class="main-item">
-                  <span class="name-item">{{ doctor.name }}</span>
-                  <img
-                    class="star-img"
-                    src="https://i.ibb.co/5hLkDzw/star.png"
-                    alt=""
-                  />
-                </div>
-              </td>
-              <td>{{ doctor.join }}</td>
-              <td>
-                <div class="main-item">
-                  <span class="name-item">{{ doctor.img }}</span>
-                  <img class="star-img" :src="doctor.img" alt="" />
-                </div>
-              </td>
+          <th>Doctor Rating</th>
+          <th>Doctor Designation</th>
+        </tr>
+        <tr v-for="doctor in doctors" :key="doctor.id">
+          <td>
+            <div class="main-item">
+              <span class="name-item">{{ doctor.name }}</span>
+              <img
+                class="star-img"
+                src="https://i.ibb.co/5hLkDzw/star.png"
+                alt=""
+              />
+            </div>
+          </td>
+          <td>{{ doctor.join }}</td>
+          <td>
+            <div class="main-item">
+              <span class="name-item">{{ doctor.img }}</span>
+              <img class="star-img" :src="doctor.img" alt="" />
+            </div>
+          </td>
 
-              <td>{{ doctor.rating }}</td>
-              <td>{{ doctor.designation }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-simple-table>
-    </template>
-  </v-container>
+          <td>{{ doctor.rating }}</td>
+          <td>{{ doctor.designation }}</td>
+        </tr>
+      </table>
+    </v-container>
+  </section>
 </template>
 
 <script>
 export default {
-  name: "Vuetify-Table",
+  name: "Html-Table",
   data() {
     return {
       //TABLE DATA
@@ -109,14 +103,13 @@ export default {
 table {
   border-collapse: collapse;
   width: 100%;
-  border: 2px solid #3f51b5;
 }
 td,
 th {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 5px;
+  padding: 10px 5px;
   text-align: left;
   max-width: 20px;
 }
@@ -139,5 +132,14 @@ th {
 }
 .star-img {
   width: 20px;
+}
+tr:nth-child(even) {
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+tr:nth-child(odd) {
+  background-color: #b7cfff;
+  color: rgb(0, 0, 0);
 }
 </style>

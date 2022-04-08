@@ -38,7 +38,7 @@ export default {
         { title: "Home", route: "home" },
         { title: "About", route: "about" },
         { title: "Services", route: "services" },
-        { title: "Doctors", route: "doctors" },
+        { title: "Doctors", route: "doctors/vuetivue" },
       ],
     };
   },

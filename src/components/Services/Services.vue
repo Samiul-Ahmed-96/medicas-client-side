@@ -16,7 +16,7 @@
           md="4"
           sm="12"
         >
-          <v-card class="single-service">
+          <v-card class="single-service elevation-20">
             <img v-bind:src="'data:image/jpeg;base64,' + service.img" />
             <h2>{{ service.name }}</h2>
             <h4>Service Price : {{ service.price }}</h4>

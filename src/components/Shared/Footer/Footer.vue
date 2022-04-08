@@ -65,13 +65,16 @@
                 <router-link to="/service">Services</router-link>
               </li>
               <li>
-                <router-link to="/home#doctors">Doctor</router-link>
+                <router-link to="/doctors/vuetivue">Doctor</router-link>
               </li>
               <li>
-                <router-link to="/dashboard">Dashboard</router-link>
+                <router-link to="/about">About</router-link>
               </li>
               <li>
-                <router-link to="/home#about">About</router-link>
+                <router-link to="/login">Login</router-link>
+              </li>
+              <li>
+                <router-link to="/signup">Sign Up</router-link>
               </li>
             </ul>
           </div>

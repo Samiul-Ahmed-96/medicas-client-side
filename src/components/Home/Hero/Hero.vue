@@ -57,7 +57,6 @@ export default {
 .hero-main {
   background-color: #3f51b5;
   color: #fff;
-  margin: 0;
   padding: 0;
 }
 .left-hero p {
