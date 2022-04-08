@@ -1,6 +1,8 @@
 
 
 import DetailService from './components/DetailService/DetailService.vue';
+import Doctors from './components/Home/Doctors/Doctors.vue';
+import DocVue from './components/Home/Doctors/VuetifyVueTable.vue';
 import Home from './components/Home/Home/Home.vue';
 import Login from './components/Login/Login.vue';
 import Services from './components/Services/Services.vue';
@@ -33,6 +35,18 @@ export default  [
         name : 'Services',
         path : '/services',
         component : Services
+    },
+    {
+        name : 'Doctors',
+        path : '/doctors',
+        component : Doctors,
+        children:[
+            {
+                name : 'DocVue',
+                path : 'docvue',
+                component : DocVue
+            }
+        ]
     },
     {
         name : 'DetailService',

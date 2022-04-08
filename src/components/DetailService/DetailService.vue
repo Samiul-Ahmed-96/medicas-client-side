@@ -1,6 +1,22 @@
 <template>
-  <section class="">
-    <h2>{{ id }}</h2>
+  <section class="service-detail my-6">
+    <v-container>
+      <v-row class="align-center">
+        <v-col lg="6" md="6" sm="12">
+          <div class="left-detail">
+            <img v-bind:src="'data:image/jpeg;base64,' + singleItem.img" />
+          </div>
+        </v-col>
+        <v-col lg="6" md="6" sm="12">
+          <div class="right-detail">
+            <h1>{{ singleItem.name }}</h1>
+            <p>{{ singleItem.description }}</p>
+            <h3>Rating : {{ singleItem.rating }}</h3>
+            <h2>Price : {{ singleItem.price }}</h2>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
   </section>
 </template>
 
@@ -24,4 +40,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.left-detail {
+  text-align: center;
+}
+.left-detail img {
+  width: 50%;
+}
+</style>

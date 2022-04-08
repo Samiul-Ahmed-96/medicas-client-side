@@ -16,12 +16,20 @@
           md="4"
           sm="12"
         >
-          <div class="single-service">
+          <v-card class="single-service">
             <img v-bind:src="'data:image/jpeg;base64,' + service.img" />
             <h2>{{ service.name }}</h2>
             <h4>Service Price : {{ service.price }}</h4>
-            <v-btn> <v-icon>mdi-plus</v-icon> Details </v-btn>
-          </div>
+            <v-btn
+              ><v-icon>mdi-plus</v-icon>
+              <router-link
+                class="dynamic-link"
+                :to="{ name: 'DetailService', params: { id: service._id } }"
+              >
+                Details</router-link
+              ></v-btn
+            >
+          </v-card>
         </v-col>
       </v-row>
     </v-container>

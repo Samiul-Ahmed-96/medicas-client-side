@@ -16,21 +16,27 @@
           md="4"
           sm="12"
         >
-          <div class="single-service">
+          <v-card class="single-service bg elevation-10">
             <img v-bind:src="'data:image/jpeg;base64,' + service.img" />
             <h2>{{ service.name }}</h2>
             <h4>Service Price : {{ service.price }}</h4>
             <v-btn
               ><v-icon>mdi-plus</v-icon>
               <router-link
+                class="dynamic-link"
                 :to="{ name: 'DetailService', params: { id: service._id } }"
               >
                 Details</router-link
               ></v-btn
             >
-          </div>
+          </v-card>
         </v-col>
       </v-row>
+      <v-btn class="my-10 elevation-10"
+        ><router-link class="more-btn" to="/services"
+          >More Service</router-link
+        ></v-btn
+      >
     </v-container>
   </section>
 </template>
@@ -64,8 +70,8 @@ export default {
 }
 .single-service {
   text-align: center;
-  background: #3f51b5;
-  color: #fff;
+  background: #3f51b5 !important;
+  color: #fff !important;
   padding: 20px;
   border-radius: 10px;
 }
@@ -84,5 +90,15 @@ export default {
 .section-heading h1 span {
   color: #3f51b5;
   font-size: 45px;
+}
+.dynamic-link {
+  color: black !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+.more-btn {
+  color: black !important;
+  text-decoration: none;
+  margin: 30px 0px;
 }
 </style>

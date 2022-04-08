@@ -13,10 +13,11 @@
     <v-list color="indigo" class="d-flex align-center">
       <v-list-item link v-for="menu in menus" :key="menu.title">
         <v-list-item-title
-          ><router-link
+          ><v-btn
+            text
             style="color: #ffe04a; text-decoration: none"
-            :to="menu.route"
-            >{{ menu.title }}</router-link
+            :to="'/' + menu.route"
+            >{{ menu.title }}</v-btn
           ></v-list-item-title
         >
       </v-list-item>
