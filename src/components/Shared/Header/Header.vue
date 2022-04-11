@@ -24,10 +24,13 @@
         >
       </v-list-item>
     </v-list>
-    <v-btn to="/login" text><v-icon color="#ffe04a">mdi-login</v-icon></v-btn>
-    <v-btn to="/signup" text
-      ><v-icon color="#ffe04a">mdi-account-arrow-right </v-icon></v-btn
+    <v-btn to="/login" text
+      ><v-icon color="#ffe04a">mdi-account-arrow-right</v-icon></v-btn
     >
+    <v-btn to="/signup" text
+      ><v-icon color="#ffe04a">mdi-account-arrow-up </v-icon></v-btn
+    >
+    <v-btn text><v-icon color="#ffe04a">mdi-login </v-icon></v-btn>
   </v-app-bar>
 </template>
 

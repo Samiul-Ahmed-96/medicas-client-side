@@ -26,6 +26,7 @@
                 class="mt-2s"
                 type="email"
                 label="Your Email"
+                v-model="loginData.email"
                 :rules="rules"
                 hide-details="auto"
               ></v-text-field>
@@ -35,11 +36,15 @@
                 type="password"
                 label="Your Password"
                 :rules="rules"
+                v-model="loginData.password"
                 hide-details="auto"
               ></v-text-field>
             </div>
             <div class="login-btn mt-5">
-              <v-btn>Login</v-btn>
+              <v-btn @click="loginUser">Login</v-btn>
+            </div>
+            <div class="login-btn mt-5">
+              <v-btn @click="signInGoogle">Google Sign In</v-btn>
             </div>
           </form>
         </v-col>
@@ -49,8 +54,38 @@
 </template>
 
 <script>
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+const auth = getAuth();
+const googleProvider = new GoogleAuthProvider();
 export default {
   name: "login-route",
+  data() {
+    return {
+      loginData: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    loginUser: function () {
+      signInWithEmailAndPassword(
+        auth,
+        this.loginData.email,
+        this.loginData.password
+      )
+        .then((data) => console.log(data))
+        .then((err) => console.log(err));
+    },
+    signInGoogle: function () {
+      signInWithPopup(auth, googleProvider);
+    },
+  },
 };
 </script>
 
