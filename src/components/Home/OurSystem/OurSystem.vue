@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-section.our-system {
+.our-system {
   margin: -24px;
 }
 .single-system {

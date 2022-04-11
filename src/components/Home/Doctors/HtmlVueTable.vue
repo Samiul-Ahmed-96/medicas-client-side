@@ -6,7 +6,6 @@
           <th>Name</th>
           <th>Joining Date</th>
           <th>Image Link</th>
-
           <th>Doctor Rating</th>
           <th>Doctor Designation</th>
         </tr>
@@ -109,7 +108,7 @@ th {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 10px 5px;
+  padding: 12px 10px;
   text-align: left;
   max-width: 20px;
 }

@@ -59,6 +59,7 @@ export default {
   color: #fff;
   padding: 0;
 }
+
 .left-hero p {
   margin: 30px 0px;
 }

@@ -16,15 +16,7 @@
           <form>
             <div class="login-input">
               <v-text-field
-                class="mt-2s"
-                type="text"
-                label="Your Name"
-                :rules="rules"
-                hide-details="auto"
-              ></v-text-field>
-            </div>
-            <div class="login-input">
-              <v-text-field
+                v-model="signUpData.email"
                 class="mt-2s"
                 type="email"
                 label="Your Email"
@@ -34,6 +26,7 @@
             </div>
             <div class="login-input">
               <v-text-field
+                v-model="signUpData.password"
                 type="password"
                 label="Your Password"
                 :rules="rules"
@@ -41,7 +34,10 @@
               ></v-text-field>
             </div>
             <div class="login-btn mt-5">
-              <v-btn>Sign Up</v-btn>
+              <v-btn @click="signUp()">Sign Up</v-btn>
+            </div>
+            <div class="login-btn mt-5">
+              <v-btn @click="signUp()">Google sign in </v-btn>
             </div>
           </form>
         </v-col>
@@ -56,10 +52,32 @@
     </v-container>
   </section>
 </template>
-
 <script>
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 export default {
   name: "login-route",
+  data() {
+    return {
+      signUpData: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    signUp: function () {
+      createUserWithEmailAndPassword(
+        getAuth(),
+        this.signUpData.email,
+        this.signUpData.password
+      )
+        .then((data) => {
+          alert("Success", data);
+        })
+        .then((err) => console.log(err.message));
+    },
+  },
 };
 </script>
 

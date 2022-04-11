@@ -8,7 +8,6 @@
               <th class="text-left">Name</th>
               <th class="text-left">Joining Date</th>
               <th class="text-left">Image Link</th>
-
               <th class="text-left">Doctor Rating</th>
               <th class="text-left">Doctor Designation</th>
             </tr>

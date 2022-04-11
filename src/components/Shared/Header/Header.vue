@@ -6,9 +6,11 @@
     elevation="6"
     elevate-on-scroll
   >
-    <v-avatar style="width: 120px" :tile="true">
-      <img :src="require('../../../assets/logo.png')" alt="logo" />
-    </v-avatar>
+    <router-link to="/">
+      <v-avatar style="width: 120px" :tile="true">
+        <img :src="require('../../../assets/logo.png')" alt="logo" />
+      </v-avatar>
+    </router-link>
     <v-spacer />
     <v-list color="indigo" class="d-flex align-center">
       <v-list-item link v-for="menu in menus" :key="menu.title">
