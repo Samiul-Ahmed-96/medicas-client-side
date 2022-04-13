@@ -1,6 +1,7 @@
 <template>
   <section class="login">
     <v-container>
+
       <v-row class="align-center">
         <v-col class="left-login" lg="6" md="6" sm="12">
           <div class="section-title">
@@ -51,45 +52,56 @@
 
 
 <script>
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default {
   name: "login-route",
   data() {
     return {
       signUpData: {
-        displayName:"",
         email: "",
         password: "",
       },
     };
   },
   methods: {
-    signUp  () {
-      const auth = getAuth();
-      createUserWithEmailAndPassword(
-        auth,
+  //   signUp  () {
+  //     const auth = getAuth();
+  //     createUserWithEmailAndPassword(
+  //       auth,
 
-        this.signUpData.email,
-        this.signUpData.password
-      ).then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user)
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode)
-    console.log(errorMessage)
-  });
-        // .then((data) => {
-        //   alert("Sign up successfully", data);
-        // })
-        // .then((err) => console.log(err.message));
-    },
+  //       this.signUpData.email,
+  //       this.signUpData.password
+  //     ).then((userCredential) => {
+  //   // Signed in 
+  //   const user = userCredential.user;
+  //   console.log(user)
+  //   // ...
+  // })
+  // .catch((error) => {
+  //   const errorCode = error.code;
+  //   const errorMessage = error.message;
+  //   console.log(errorCode)
+  //   console.log(errorMessage)
+  // });
+  //       // .then((data) => {
+  //       //   alert("Sign up successfully", data);
+  //       // })
+  //       // .then((err) => console.log(err.message));
+  //   },
+
+  signUp(){
+    this.$store.dispatch('registerUser',{
+      email : this.signUpData.email,
+      password : this.signUpData.password,
+    });
+  }
   },
+  computed:{
+    user() {
+      return this.$store.getters.user;
+    },
+  }
 };
 </script>
 

@@ -10,7 +10,7 @@
       </div>
       <v-row>
         <v-col
-          v-for="service in services"
+          v-for="service in servicesList"
           :key="service._id"
           lg="4"
           md="4"
@@ -20,10 +20,10 @@
             <img v-bind:src="'data:image/jpeg;base64,' + service.img" />
             <h2>{{ service.name }}</h2>
             <h4>Service Price : {{ service.price }}</h4>
-            <v-btn
+            <v-btn outlined class="white--text"
               ><v-icon>mdi-plus</v-icon>
               <router-link
-                class="dynamic-link"
+                class="dynamic-link white--text"
                 :to="{ name: 'DetailService', params: { id: service._id } }"
               >
                 Details</router-link
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import {mapState} from 'vuex';
 export default {
   name: "Services-area",
   data() {
@@ -45,13 +45,15 @@ export default {
       services: [],
     };
   },
-  async mounted() {
-    let result = await axios.get(
-      "https://stormy-basin-00847.herokuapp.com/services"
-    );
-
-    this.services = result.data;
+  mounted() {
+    this.$store.dispatch('loadServices')
   },
+  computed:{
+    ...mapState([
+      'servicesList'
+    ]),
+   
+  }
 };
 </script>
 

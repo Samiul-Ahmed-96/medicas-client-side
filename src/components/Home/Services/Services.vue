@@ -52,17 +52,9 @@ export default {
   data() {
     return {
       services: [],
-      servicesTwo : []
     };
   },
   mounted() {
-    // let result = await axios.get(
-    //   "https://stormy-basin-00847.herokuapp.com/services"
-    // );
-
-    // this.services = result.data;
-    // this.services = this.services.slice(0, 6);
-
     this.$store.dispatch('loadServices')
   },
   computed:{

@@ -38,13 +38,15 @@
                 hide-details="auto"
               ></v-text-field>
             </div>
-            <div class="login-btn mt-5">
+            <div class="login-btn d-flex justify-center align-center my-6">
+              <div >
               <v-btn @click="loginUser">Login</v-btn>
             </div>
-            <div class="login-btn my-2">
-              <v-btn @click="signInGoogle">
+            <div>
+              <v-btn class="ml-5" @click="signInGoogle">
                 <v-icon>mdi-google</v-icon> Login</v-btn
               >
+            </div>
             </div>
           </form>
         </v-col>

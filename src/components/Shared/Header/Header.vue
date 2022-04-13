@@ -24,6 +24,7 @@
         >
       </v-list-item>
     </v-list>
+
     <v-btn to="/login" text
       ><v-icon color="#ffe04a">mdi-account-arrow-right</v-icon></v-btn
     >
@@ -31,6 +32,7 @@
       ><v-icon color="#ffe04a">mdi-account-arrow-up </v-icon></v-btn
     >
     <v-btn text><v-icon color="#ffe04a">mdi-login </v-icon></v-btn>
+    
   </v-app-bar>
 </template>
 
@@ -45,8 +47,14 @@ export default {
         { title: "Services", route: "services" },
         { title: "Doctors", route: "doctors/vuetivue" },
       ],
+      userInfo : '',
     };
   },
+    computed:{
+    user() {
+      return this.$store.getters.user ;
+    },
+  }
 };
 </script>
 
