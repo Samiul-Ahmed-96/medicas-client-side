@@ -8,9 +8,10 @@
           through Respiratory and Sleep Therapy
         </p>
       </div>
+      <!-- <h3>{{serviceList}}</h3> -->
       <v-row>
         <v-col
-          v-for="service in services"
+          v-for="service in topServices"
           :key="service._id"
           lg="4"
           md="4"
@@ -37,27 +38,42 @@
           >More Service</router-link
         ></v-btn
       >
+
     </v-container>
   </section>
 </template>
 
+
 <script>
-import axios from "axios";
+
+import {mapState} from 'vuex';
 export default {
   name: "Services-area",
   data() {
     return {
       services: [],
+      servicesTwo : []
     };
   },
-  async mounted() {
-    let result = await axios.get(
-      "https://stormy-basin-00847.herokuapp.com/services"
-    );
-    console.log(result.data);
-    this.services = result.data;
-    this.services = this.services.slice(0, 6);
+  mounted() {
+    // let result = await axios.get(
+    //   "https://stormy-basin-00847.herokuapp.com/services"
+    // );
+
+    // this.services = result.data;
+    // this.services = this.services.slice(0, 6);
+
+    this.$store.dispatch('loadServices')
   },
+  computed:{
+    ...mapState([
+      'servicesList'
+    ]),
+    topServices(){
+      return this.$store.getters.sortList;
+    }
+  }
+  
 };
 </script>
 

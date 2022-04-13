@@ -20,7 +20,6 @@
                 class="mt-2s"
                 type="email"
                 label="Your Email"
-                :rules="rules"
                 hide-details="auto"
               ></v-text-field>
             </div>
@@ -29,15 +28,11 @@
                 v-model="signUpData.password"
                 type="password"
                 label="Your Password"
-                :rules="rules"
                 hide-details="auto"
               ></v-text-field>
             </div>
-            <div class="login-btn mt-5">
+            <div class="login-btn my-5">
               <v-btn @click="signUp()">Sign Up</v-btn>
-            </div>
-            <div class="login-btn mt-5">
-              <v-btn @click="signUp()">Google sign in </v-btn>
             </div>
           </form>
         </v-col>
@@ -52,6 +47,9 @@
     </v-container>
   </section>
 </template>
+
+
+
 <script>
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -60,26 +58,42 @@ export default {
   data() {
     return {
       signUpData: {
+        displayName:"",
         email: "",
         password: "",
       },
     };
   },
   methods: {
-    signUp: function () {
+    signUp  () {
+      const auth = getAuth();
       createUserWithEmailAndPassword(
-        getAuth(),
+        auth,
+
         this.signUpData.email,
         this.signUpData.password
-      )
-        .then((data) => {
-          alert("Success", data);
-        })
-        .then((err) => console.log(err.message));
+      ).then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode)
+    console.log(errorMessage)
+  });
+        // .then((data) => {
+        //   alert("Sign up successfully", data);
+        // })
+        // .then((err) => console.log(err.message));
     },
   },
 };
 </script>
+
+
 
 <style scoped>
 .login {

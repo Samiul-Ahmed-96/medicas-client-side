@@ -49,7 +49,7 @@ export default {
     let result = await axios.get(
       "https://stormy-basin-00847.herokuapp.com/services"
     );
-    console.log(result.data);
+
     this.services = result.data;
   },
 };

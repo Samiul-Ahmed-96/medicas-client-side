@@ -27,7 +27,6 @@
                 type="email"
                 label="Your Email"
                 v-model="loginData.email"
-                :rules="rules"
                 hide-details="auto"
               ></v-text-field>
             </div>
@@ -35,7 +34,6 @@
               <v-text-field
                 type="password"
                 label="Your Password"
-                :rules="rules"
                 v-model="loginData.password"
                 hide-details="auto"
               ></v-text-field>
@@ -43,8 +41,10 @@
             <div class="login-btn mt-5">
               <v-btn @click="loginUser">Login</v-btn>
             </div>
-            <div class="login-btn mt-5">
-              <v-btn @click="signInGoogle">Google Sign In</v-btn>
+            <div class="login-btn my-2">
+              <v-btn @click="signInGoogle">
+                <v-icon>mdi-google</v-icon> Login</v-btn
+              >
             </div>
           </form>
         </v-col>
@@ -60,12 +60,12 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-const auth = getAuth();
 const googleProvider = new GoogleAuthProvider();
 export default {
   name: "login-route",
   data() {
     return {
+      userName: "",
       loginData: {
         email: "",
         password: "",
@@ -74,16 +74,28 @@ export default {
   },
   methods: {
     loginUser: function () {
+      const auth = getAuth();
       signInWithEmailAndPassword(
         auth,
         this.loginData.email,
         this.loginData.password
       )
-        .then((data) => console.log(data))
+        .then((data) => {
+          console.log(data)
+          this.userName.displayName(data.user.displayName)
+          console.log(this.userName)
+
+        })
         .then((err) => console.log(err));
     },
     signInGoogle: function () {
-      signInWithPopup(auth, googleProvider);
+      const auth = getAuth();
+      signInWithPopup(auth, googleProvider).then((data) =>
+        {
+          this.userName(data.user.displayName)
+          console.log(this?.userName)
+        }
+      );
     },
   },
 };

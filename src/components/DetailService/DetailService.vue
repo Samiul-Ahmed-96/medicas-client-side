@@ -9,7 +9,7 @@
         </v-col>
         <v-col lg="6" md="6" sm="12">
           <div class="right-detail">
-            <h1>{{ singleItem.name }}</h1>
+            <h1 class="display-3">{{ singleItem.name }}</h1>
             <p>{{ singleItem.description }}</p>
             <h3>Rating : {{ singleItem.rating }}</h3>
             <h2>Price : {{ singleItem.price }}</h2>

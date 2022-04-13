@@ -112,7 +112,6 @@ export default {
   background: #3f51b5;
   color: #fff;
   padding: 30px 0px;
-  margin-top: 30px;
 }
 
 .anout-us ul li {

@@ -1,7 +1,7 @@
 <template>
-  <v-app>
+  <v-app class="grey lighten-4">
+    <Header />
     <v-main>
-      <Header></Header>
       <router-view></router-view>
       <Footer></Footer>
     </v-main>
@@ -9,14 +9,15 @@
 </template>
 
 <script>
-import Header from "./components/Shared/Header/Header.vue";
 import Footer from "./components/Shared/Footer/Footer.vue";
+import Header from "./components/Shared/Header/Header.vue";
+
 export default {
   name: "App",
 
   components: {
-    Header,
     Footer,
+    Header,
   },
 
   data: () => ({
